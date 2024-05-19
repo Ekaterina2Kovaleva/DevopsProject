@@ -1,0 +1,236 @@
+.price-page-title {
+    margin: 0;
+    margin-bottom: 50px;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 4.25px;
+    color: #C1C1C1;
+}
+
+
+/*выбор тарифа (слайдер)*/
+.swiper-wrapper {
+    align-items: stretch;
+}
+
+.swiper-slide {
+    height: auto;
+}
+
+.price-div-swiper {
+    margin-bottom: 65px;
+    /* box-shadow: 0px 0px 4px 2px rgba(212, 214, 215, 0.25); */
+}
+
+.tariff-slide {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 40px 30px 40px 30px;
+    height: calc(100% - 30px);
+    height: 100%;
+    width: 100%;
+    box-shadow: 360px 4px 4px 0px rgba(0, 0, 0, 0.75) inset;
+    border: 1px solid #C1C1C1;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.min-tariff {
+    background-image: url('./img/min-img.png');
+}
+
+.medium-tariff {
+    background-image: url('./img/medium-img.png');
+}
+
+.max-tariff {
+    background-image: url('./img/max-img.png');
+}
+
+.tariff-title {
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 2.55px;
+}
+
+.incoming-tariff {
+    margin-bottom: 17px;
+    font-size: 14px;
+    line-height: 166.188%;
+    letter-spacing: 2.1px;
+}
+
+.tariff-pluses-list {
+    margin-bottom: 40px;
+}
+
+.tatiff-plus {
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 166.188%;
+    letter-spacing: 2.1px;
+}
+
+.tariff-slide-bottom-div {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    align-items: center;
+}
+
+.tariff-price {
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 166.188%;
+    letter-spacing: 2.1px;
+}
+
+.read-more-btn {
+    margin-bottom: 12px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 166%;
+    letter-spacing: 0.15em;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: #c1c1c1;
+}
+
+.choose-tariff-btn {
+    box-sizing: border-box;
+    padding: 10px 0px;
+    height: 45px;
+    width: 220px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 166.188%;
+    letter-spacing: 2.1px;
+    color: #C1C1C1;
+    border: solid 1px #C1C1C1;
+}
+
+.choose-tariff-btn-active {
+    box-sizing: border-box;
+    padding: 10px 0px;
+    height: 45px;
+    width: 220px;
+    background-color: #C1C1C1;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 166.188%;
+    letter-spacing: 2.1px;
+    color: #111;
+}
+
+.swiper-pagination-bullet {
+    background-color: rgba(217, 217, 217, 0.90);
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #C1C1C1;
+}
+
+
+/*расчет стоимости*/
+.calculation-div {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0 15px;
+}
+
+.calculation-title {
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 2.55px;
+    color: #C1C1C1;
+}
+
+.calculation-tariff-select {
+    align-self: center;
+    margin-bottom: 30px;
+    padding: 6px 0px 6px 6px;
+    width: 80%;
+    border-radius: 0;
+    border: 1px solid #D4D6D7;
+    background-color: transparent;
+    
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("./img/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) center;
+
+    font-size: 17px;
+    font-weight: 300;
+    color: #C1C1C1;
+}
+
+.calculation-tariff-select:focus {
+    outline: none;
+}
+
+.calculation-tariff-select-option {
+    width: 80%;
+    background-color: #111;
+}
+
+.calculation-selected-area-range-input {
+    margin-bottom: 30px;
+    height: 1px;
+    accent-color: #C1C1C1;
+}
+
+.calculation-selected-area {
+    display: flex;
+    align-self: center;
+    text-align: center;
+    width: 20%;
+    padding: 3px 25px;
+    margin-bottom: 30px;
+    color: #C1C1C1;
+    border: 1px solid #D4D6D7;
+    background: transparent;
+}
+
+.calculation-selected-area-text-input {
+    width: 100%;
+    color: #C1C1C1;
+    border: none;
+    background: transparent;
+}
+
+.calculation-selected-area-text-input:focus {
+    outline: none;
+}
+
+.calculation-button {
+    align-self: center;
+    width: 226px;
+    margin-bottom: 45px;
+    padding: 10px 60px;
+    border: 1px solid #C1C1C1;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 2.55px;
+    color: #C1C1C1;
+}
+
+.calculation-final-price {
+    align-self: center;
+    margin-bottom: 45px;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 5px;
+    color: #C1C1C1;
+
+    margin-top: 20px;
+}

@@ -1,0 +1,21 @@
+.price-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    border: 1px solid #C1C1C1;
+}
+
+.price-link-text {
+    width: 30%;
+    margin: 0;
+    color: #C1C1C1;
+    font-family: Ubuntu;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 4.25px;
+}

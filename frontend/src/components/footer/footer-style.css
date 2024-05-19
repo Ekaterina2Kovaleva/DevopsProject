@@ -1,0 +1,49 @@
+.footer-container {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    width: 100%;
+    border-top: 1px solid #C1C1C1;
+}
+
+.footer-contacts-container {
+    width: max-content;
+    align-self: flex-end;
+}
+
+.footer-text {
+    margin-bottom: 15px;
+    color: #C1C1C1;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 4.25px;
+}
+
+.footer-name {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2.1px;
+}
+
+.footer-number {
+    margin-bottom: 15px;
+    font-family: Ubuntu;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2.1px;
+    color: #C1C1C1;
+}
+
+.footer-links-container {
+    margin-top: 15px;
+    align-self: flex-end;
+}
+
+.footer-link:not(:last-child) {
+    margin-right: 17px;
+}

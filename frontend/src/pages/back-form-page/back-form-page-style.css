@@ -1,0 +1,56 @@
+.back-form {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 65px 25px;
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.69) 0%, rgba(17, 17, 17, 0.47) 50%, rgba(17, 17, 17, 0.02) 100%), url('./img/bg-img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover; 
+
+    margin-bottom: 200px;
+}
+
+.back-form-content {
+    height: 370px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-form-inputs {
+    width: 100%;
+}
+
+.back-form-input {
+    padding: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(217, 217, 217, 0.80);
+    border: none;
+}
+
+.success-message {
+    padding: 25px;
+    width: 269px;
+    font-weight: 300;
+    font-size: 15px;
+    text-align: center;
+    color: #111;
+    background: rgba(217, 217, 217, 0.8);
+}
+
+.back-form-input-message {
+    min-height: 150px;
+    resize: none;
+}
+
+.back-form-send-btn {
+    align-self: center;
+    padding: 12px;
+    width: 150px;
+    color: #C1C1C1;
+    border: solid 1px #C1C1C1;
+    
+}

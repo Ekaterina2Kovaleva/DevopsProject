@@ -1,0 +1,121 @@
+.header-logo {
+    width: 140px;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-container-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 101;
+}
+
+.hamburger-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 18px;
+    width: 25px;
+    background-color: transparent;
+}
+
+.line {
+    display: block;
+    height: 1px;
+    width: 100%;
+    border-radius: 10px;
+    background: #C1C1C1;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+    width: 30px;
+}
+  
+.line2 {
+    opacity: 0;
+    pointer-events: none;
+}
+  
+.line3 {
+    transform: rotate(-45deg) translate(7px, -7px);
+    width: 30px;
+}
+
+.menu-modal-container {
+    z-index: 100;
+    position: absolute;
+    top: 60px;
+    visibility: hidden;
+    width: 100vw;
+    max-width: 500px;
+    height: calc(100vh - 60px);
+    min-height: auto;
+    box-sizing: border-box;
+    padding: 30px 30px;
+    background-color: #111111;
+}
+
+.link-menu-modal {
+    margin-bottom: 17px;
+    text-align: left;
+    font-family: Ubuntu;
+    font-weight: 300;
+    font-size: 17px;
+    letter-spacing: 0.25em;
+    color: #c1c1c1;
+
+    cursor: pointer;
+}
+
+.title-menu-modal {
+    /* position: static; */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 12px;
+    font-family: Ubuntu;
+    font-weight: 300;
+    font-size: 17px;
+    letter-spacing: 0.25em;
+    color: rgba(193, 193, 193, 0.6);
+}
+
+.title-menu-modal-line {
+    position: absolute;
+    height: 1px;
+    background-color: #C1C1C1;
+}
+
+.port-top {
+    left: 0;
+    width: 33%;
+}
+
+.port-bottom {
+    right: 0;
+    width: 37%;
+}
+
+.inf-top {
+    left: 0;
+    width: 14%;
+}
+
+.inf-bottom {
+    right: 0;
+    width: 47%;
+}
+
+.indent {
+    margin-bottom: 40px;
+}

@@ -1,0 +1,64 @@
+.object-back-link-text {
+    margin: 0;
+    font-family: Ubuntu;
+    font-size: 12px;
+    font-weight: 300;
+    color: #787878;
+}
+
+.object-back-link {
+    margin: 0;
+    font-family: Ubuntu;
+    font-size: 12px;
+    font-weight: 300;
+    color: #787878;
+}
+
+.object-main-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding-top: 20px;
+    margin-bottom: 25px;
+}
+
+.object-main-inf {
+    margin-bottom: 30px;
+}
+
+.object-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 5.5px;
+}
+
+.object-main-text {
+    font-size: 17px;
+    line-height: 166.188%;
+    letter-spacing: 1.7px;
+}
+
+.object-inf {
+    margin-bottom: 30px;
+    font-size: 15px;
+    line-height: 166.188%;
+    letter-spacing: 1.5px;
+}
+
+.object-imgs-div {
+    margin-bottom: 170px;
+}
+
+.object-img {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.design-project-text-temporary {
+    margin-bottom: 20px;
+    font-size: 17px;
+    line-height: 166.188%;
+    letter-spacing: 1.7px;
+}
