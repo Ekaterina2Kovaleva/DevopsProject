@@ -7,10 +7,22 @@ terraform {
   required_version = ">= 0.13"
 }
 
+variable "token" {
+  type = string
+}
+
+variable "cloud-id" {
+  type = string
+}
+
+variable "folder-id" {
+  type = string
+}
+
 provider "yandex" {
-  token  =  "y0_AgAAAAA_o5jkAATuwQAAAAEEx9JZAAB6OrExVZBKh5do3DZDsqMIGhPXfw"
-  cloud_id  = "b1gn5dqg9b1gl8qjlmug"
-  folder_id = "b1grbnvt6pt9nqtrir0o"
+  token  =  var.token
+  cloud_id  = var.cloud-id
+  folder_id = var.folder-id
   zone      = "ru-central1-a"
 }
 
@@ -121,21 +133,43 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   depends_on = [yandex_mdb_postgresql_cluster.db-1]
+  
+  provisioner "local-exec" {
+    command = "sleep 300"
+  }
 
   provisioner "remote-exec" {
     inline = [
       "mkdir -p /home/ubuntu/design_site"
     ]
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file("~/.ssh/id_rsa")
+      host        = self.network_interface.0.nat_ip_address
+    }
   }
 
   provisioner "file" {
-    source      = "../../infra"
+    source      = "../infra"
     destination = "/home/ubuntu/design_site"
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file("~/.ssh/id_rsa")
+      host        = self.network_interface.0.nat_ip_address
+    }
   }
 
   provisioner "file" {
-    source      = "../../backend"
+    source      = "../backend"
     destination = "/home/ubuntu/design_site"
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file("~/.ssh/id_rsa")
+      host        = self.network_interface.0.nat_ip_address
+    }
   }
   
   provisioner "remote-exec" {
@@ -145,8 +179,22 @@ resource "yandex_compute_instance" "vm-1" {
       "echo 'POSTGRES_PASSWORD=${var.db-password}' >> /home/ubuntu/design_site/infra/.env",
       "echo 'DB_HOST=${yandex_mdb_postgresql_cluster.db-1.host}' >> /home/ubuntu/design_site/infra/.env",
       "echo 'DB_ENGINE=${var.db-engine}' >> /home/ubuntu/design_site/infra/.env",
-      "echo 'DB_PORT=${var.db-port}' >> /home/ubuntu/design_site/infra/.env"
+      "echo 'DB_PORT=${var.db-port}' >> /home/ubuntu/design_site/infra/.env",
+      "sudo apt update",
+      "sudo apt install docker.io -y",
+      "sudo apt install docker-compose -y",
+      "sudo docker-compose up -d",
+      "sudo docker exec -ti infra_backend_1 python manage.py makemigrations",
+      "sudo docker exec -ti infra_backend_1 python manage.py migrate",
+      "sudo docker exec -ti infra_backend_1 python manage.py collectstatic"
+
     ]
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = file("~/.ssh/id_rsa")
+      host        = self.network_interface.0.nat_ip_address
+    }
   }
 }
 
