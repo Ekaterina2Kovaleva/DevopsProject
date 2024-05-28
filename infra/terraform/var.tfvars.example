@@ -2,4 +2,5 @@ image-id = "IMAGE_ID"
 db-name = "DB_NAME"
 db-user = "USERNAME" 
 db-password = "PASSWD"
- 
+db-engine = "django.db.backends.postgresql"
+db-port = "5432"
