@@ -1,11 +1,15 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const path = require('path');
+require('dotenv').config();
+
+const accessKeyId = process.env.ACCESS_KEY;
+const secretAccessKey = process.env.SECRET_KEY;
 
 const s3 = new AWS.S3({
   endpoint: 'https://storage.yandexcloud.net',
-  accessKeyId: "YCAJEdqkTkpP13sL-Zv7I0m0S",
-  secretAccessKey: "YCORosvBKVv8J6r6of4K54uk2wvJ7y3tvQptaih6",
+  accessKeyId: accessKeyId,
+  secretAccessKey: secretAccessKey,
   region: "ru-central1",
   s3ForcePathStyle: true,
 });
@@ -55,6 +59,6 @@ const getContentType = (file) => {
 };
 
 const buildDir = path.resolve(__dirname, '../frontend/dist'); 
-const bucketName = 'design.ru';
+const bucketName = 'design-site.ru';
 
 uploadDirectory(buildDir, bucketName).catch(err => console.error('Error uploading files:', err));
