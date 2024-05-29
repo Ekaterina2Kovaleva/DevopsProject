@@ -54,7 +54,7 @@ const getContentType = (file) => {
   }
 };
 
-const buildDir = path.resolve(__dirname, '../frontend'); 
-const bucketName = 'design-site.ru';
+const buildDir = path.resolve(__dirname, '../frontend/dist'); 
+const bucketName = 'design.ru';
 
 uploadDirectory(buildDir, bucketName).catch(err => console.error('Error uploading files:', err));

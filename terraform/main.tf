@@ -133,7 +133,6 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   depends_on = [yandex_mdb_postgresql_cluster.db-1]
-  
   provisioner "local-exec" {
     command = "sleep 300"
   }
@@ -177,17 +176,20 @@ resource "yandex_compute_instance" "vm-1" {
       "echo 'DB_NAME=${var.db-name}' > /home/ubuntu/design_site/infra/.env",
       "echo 'POSTGRES_USER=${var.db-user}' >> /home/ubuntu/design_site/infra/.env",
       "echo 'POSTGRES_PASSWORD=${var.db-password}' >> /home/ubuntu/design_site/infra/.env",
-      "echo 'DB_HOST=${yandex_mdb_postgresql_cluster.db-1.host}' >> /home/ubuntu/design_site/infra/.env",
+      "echo 'DB_HOST=${yandex_mdb_postgresql_cluster.db-1.host[0].fqdn}' >> /home/ubuntu/design_site/infra/.env",
       "echo 'DB_ENGINE=${var.db-engine}' >> /home/ubuntu/design_site/infra/.env",
       "echo 'DB_PORT=${var.db-port}' >> /home/ubuntu/design_site/infra/.env",
+      "echo 'HOST=http://${yandex_compute_instance.vm-1.network_interface.0.nat_ip_address}' >> /home/ubuntu/design_site/infra/.env",
       "sudo apt update",
       "sudo apt install docker.io -y",
       "sudo apt install docker-compose -y",
+      "cd design_site/infra",
+      "sudo chmod +x ./cert.sh",
+      "sudo ./cert.sh",
       "sudo docker-compose up -d",
       "sudo docker exec -ti infra_backend_1 python manage.py makemigrations",
       "sudo docker exec -ti infra_backend_1 python manage.py migrate",
       "sudo docker exec -ti infra_backend_1 python manage.py collectstatic"
-
     ]
     connection {
       type        = "ssh"

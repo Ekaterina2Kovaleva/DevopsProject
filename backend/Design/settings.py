@@ -84,7 +84,12 @@ DATABASES = {
         'USER': os.getenv('POSTGRES_USER', default=None),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', default=None),
         'HOST': os.getenv('DB_HOST', default=None),
-        'PORT': os.getenv('DB_PORT', default=None)
+        'PORT': os.getenv('DB_PORT', default=None),
+        'OPTIONS': {
+            'sslmode': 'verify-full',
+            'sslrootcert': os.path.expanduser('~/.postgresql/root.crt'),
+            'target_session_attrs': 'read-write',
+        }
     }
 }
 
@@ -108,8 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost',
-    'http://127.0.0.1',
+    os.getenv('HOST'),
 ]
 
 # Internationalization
