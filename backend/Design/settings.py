@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v3ndu5pxbictx)as=n-9hmn4yog18bd5!+-a@4qqz!qipwgz63
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,8 +79,17 @@ WSGI_APPLICATION = 'Design.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.getenv('DB_NAME', default=None),
+        'USER': os.getenv('POSTGRES_USER', default=None),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', default=None),
+        'HOST': os.getenv('DB_HOST', default=None),
+        'PORT': os.getenv('DB_PORT', default=None),
+        'OPTIONS': {
+            'sslmode': 'verify-full',
+            'sslrootcert': os.path.expanduser('~/.postgresql/root.crt'),
+            'target_session_attrs': 'read-write',
+        }
     }
 }
 
@@ -103,6 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    os.getenv('HOST'),
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -120,6 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
