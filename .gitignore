@@ -3,3 +3,7 @@
 terraform/*
 !terraform/main.tf
 !terraform/vars.tfvars.example
+**/_pycache_/
+**/migrations/
+**/db.sqlite3
+backend/static/
