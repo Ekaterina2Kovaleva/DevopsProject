@@ -1,8 +1,7 @@
 from django.contrib import admin
-from .models import Type, DesignProject, ReleasedProject, Photo
+from .models import Project, Photo, Request
 # Register your models here.
 
-admin.site.register(Type)
-admin.site.register(DesignProject)
-admin.site.register(ReleasedProject)
+admin.site.register(Project)
 admin.site.register(Photo)
+admin.site.register(Request)
