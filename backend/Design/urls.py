@@ -20,7 +20,7 @@ from rest_framework import routers
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import permissions
-from project.views import ProjectViewSet,  PhotoViewSet, RequestViewSet
+from project.views import ProjectViewSet,  PhotoViewSet, RequestViewSet, TariffViewSet
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -39,6 +39,7 @@ router = routers.SimpleRouter()
 router.register(r'project', ProjectViewSet)
 router.register(r'photo', PhotoViewSet)
 router.register(r'request', RequestViewSet)
+router.register(r'tarriff', TariffViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

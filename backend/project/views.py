@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Project, Photo, Request
-from .serializers import ProjectSerializer, PhotoSerializer, RequestSerializer
+from .models import Project, Photo, Request, Tariff
+from .serializers import ProjectSerializer, PhotoSerializer, RequestSerializer, TariffSerializer
 
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
@@ -14,3 +14,7 @@ class PhotoViewSet(viewsets.ModelViewSet):
 class RequestViewSet(viewsets.ModelViewSet):
     queryset = Request.objects.all()
     serializer_class = RequestSerializer
+
+class TariffViewSet(viewsets.ModelViewSet):
+    queryset = Tariff.objects.all()
+    serializer_class = TariffSerializer

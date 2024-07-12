@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Photo, Project, Request
+from .models import Photo, Project, Request, Tariff
 
 class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,4 +16,9 @@ class ProjectSerializer(serializers.ModelSerializer):
 class RequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Request
+        fields = '__all__'
+
+class TariffSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tariff
         fields = '__all__'

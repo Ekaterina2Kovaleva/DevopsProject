@@ -39,8 +39,17 @@ class Request(models.Model):
 
     def __str__(self):
         return self.name
-
-
+    
+class Tariff(models.Model):
+    name = models.CharField(verbose_name="Название тарифа", max_length=255)
+    price = models.IntegerField(verbose_name="Цена проекта за кв. м")
+    description = models.TextField(verbose_name="Описание")
+    mainImg = models.ImageField(
+        upload_to=get_path_upload_image,
+        blank=True,
+        null=True,
+        validators=[FileExtensionValidator(allowed_extensions=['jpg']), validate_size_image]
+    )
 
 
 
