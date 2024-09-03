@@ -1,3 +1,5 @@
+import { ObjectProps } from '../../utils/interfaces'
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import 'swiper/css';
@@ -8,20 +10,8 @@ import { Navigation, Zoom } from 'swiper/modules';
 
 import "./design-project-style.css";
 
-interface ObjectProps {
-    objectData: {
-        name: string;
-        place: string;
-        square: string;
-        designImg: string[];
-        realization: boolean;
-        inf: string;
-        mainImg: string;
-        realImg: never[];
-    }
-}
 
-function DesignProject({ objectData } : ObjectProps) {
+function DesignProject(objectData : ObjectProps) {
     return (
         <div className="design-project-div">
             <div className="design-project-swiper-div">
@@ -35,15 +25,17 @@ function DesignProject({ objectData } : ObjectProps) {
                     modules={[Navigation, Zoom]}
                 >
                     {
-                        objectData.designImg.map((e) => {
-                            return (
-                                <SwiperSlide>
-                                    {/* <div className="swiper-zoom-container">
-                                        <img className="design-project" src={e} alt=""/>
-                                    </div> */}
-                                    <img className="design-project" src={e} alt=""/>
-                                </SwiperSlide>
-                            );
+                        objectData.photos.map((photo) => {
+                            if (photo.isDesign) {
+                                return (
+                                    <SwiperSlide>
+                                        {/* <div className="swiper-zoom-container">
+                                            <img className="design-project" src={e} alt=""/>
+                                        </div> */}
+                                        <img className="design-project" src={ photo.image } alt=""/>
+                                    </SwiperSlide>
+                                );
+                            }
                         })
                     }
                 </Swiper>

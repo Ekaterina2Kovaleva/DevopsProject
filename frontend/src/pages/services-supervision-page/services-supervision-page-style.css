@@ -5,3 +5,7 @@
     letter-spacing: 0.1em;
     color: #c1c1c1;
 }
+
+.text-indent {
+    text-indent: 25px;
+}

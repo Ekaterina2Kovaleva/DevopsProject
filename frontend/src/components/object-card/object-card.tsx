@@ -1,26 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import { ObjectProps } from "../../utils/interfaces"
 
 import "./object-card-style.css";
 import arrow from './img/arrow.svg'
 
-interface ObjectCardProps {
-    objectCardData: {
-        name: string;
-        place: string;
-        square: string;
-        designImg: string[];
-        realization: boolean;
-        inf: string;
-        mainImg: string;
-        realImg: never[];
-    }
-}
 
-function ObjectCard({ objectCardData } : ObjectCardProps) {
+function ObjectCard( objectCardData  : ObjectProps) {
     const navigate = useNavigate();
 
     function onClick() {
-        navigate('/object',{state: objectCardData })
+        navigate('/object', { state: objectCardData })
     }
 
     return (
@@ -32,7 +21,7 @@ function ObjectCard({ objectCardData } : ObjectCardProps) {
                     <p className="object-card-text">{ objectCardData.name }</p>
                     <p  className="object-card-text"> в { objectCardData.place } | { objectCardData.square } м²</p>
                 </div>
-                <img src={ arrow } alt="" />
+                {/* <img src={ arrow } alt="" /> */}
             </div>
         </button>
     )

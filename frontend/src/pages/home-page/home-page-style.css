@@ -66,9 +66,13 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
-    line-height: 166.188%; /* 23.266px */
+    line-height: 166.188%;
     letter-spacing: 2.1px;
     color: #C1C1C1;
+}
+
+.home-list {
+    margin-bottom: 16px;
 }
 
 .home-projects-div {
@@ -123,8 +127,6 @@
 
 .home-about-text {
     box-sizing: border-box;
-    /* padding-left: 20px;
-    padding-right: 20px; */
     width: 100%;
     margin: 0;
     font-family: Ubuntu;
@@ -133,4 +135,9 @@
     line-height: 143%;
     letter-spacing: 0.15em;
     color: #c1c1c1;
+    text-indent: 25px;
+}
+
+.italic {
+    font-style: italic;
 }

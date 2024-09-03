@@ -10,7 +10,7 @@ function ServicesSupervisionPage() {
         <div className="container">
             <Header/>
             <h2 className="title">Авторский надзор</h2>
-            <p className="supervision-page-text">Благодаря авторскому надзору, вы можете быть уверены, что дизайн-проект будет реализован точно так, как был задуман.</p>
+            <p className="supervision-page-text text-indent">Благодаря авторскому надзору, вы можете быть уверены, что дизайн-проект будет реализован точно так, как был задуман.</p>
             <ul>
                 <li className="supervision-page-text">- выезд на объект от 4-х раз в месяц</li>
                 <li className="supervision-page-text">- контроль соответствия хода стройки задуманному проекту</li>

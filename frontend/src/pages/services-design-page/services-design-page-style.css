@@ -1,9 +1,15 @@
 .design-page-title {
-    text-align: center;
+    text-align: left;
     font-weight: 300;
     font-size: 17px;
     letter-spacing: 0.1em;
     color: #c1c1c1;
+    margin: 0;
+    margin-bottom: 24px;
+}
+
+.design-page-main-text {
+    margin-bottom: 50px;
 }
 
 .design-page-text {
@@ -12,6 +18,24 @@
     line-height: 166%;
     letter-spacing: 0.1em;
     color: #c1c1c1;
+    margin-bottom: 50px;
+}
+
+.text-indent {
+    text-indent: 25px;
+    margin-bottom: 0;
+}
+
+.design-page-text-list {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 166%;
+    letter-spacing: 0.1em;
+    color: #c1c1c1;
+}
+
+.center {
+    text-align: center;
 }
 
 .last-text {

@@ -22,12 +22,12 @@
 
 .object-card-text-div {
     position: absolute;
-    bottom: 20px;
-    right: 10px;
+    bottom: 30px;
+    left: 16px;
     display: flex;
 }
 
 .object-card-text {
-    text-align: right;
+    text-align: left;
     margin-bottom: 2px;
 }

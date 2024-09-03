@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
+import { ObjectProps } from '../../utils/interfaces'
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -16,7 +15,7 @@ import './object-page-style.css'
 
 function ObjectPage() {
     const state = useLocation();
-    const object = state.state;
+    const object = state.state as ObjectProps;
 
     return(
         <div className="container">
@@ -32,8 +31,35 @@ function ObjectPage() {
             </div>
             <p className="object-inf">{ object.inf }</p>
             <div className="object-imgs-div">
+                        {/* <>
+                            <p className="design-project-text-temporary">В данный момент проект находится в реализации.</p>
+                            <Swiper
+                                className="design-project-swiper"
+                                spaceBetween={5}
+                                loop={true}
+                                zoom={true}
+                                navigation={true}
+                                modules={[Navigation, Zoom]}
+                            >
+                                {
+                                    object.photos.map((photo) => {
+                                        return (
+                                            <SwiperSlide>
+                                                <img className="design-project" src={ photo.image } alt=""/>
+                                            </SwiperSlide>
+                                        );
+                                    })
+                                }
+                            </Swiper>
+                        </> */}
                 {
-                    object.realImg.length === 0 ? 
+                    object.realization ? 
+                        object.photos.map((photo) => {
+                            if (photo.isDesign) {
+                                return (<img className="object-img" src={ photo.image } alt={ photo.name } />);
+                            }
+                        })
+                        :
                         <>
                             <p className="design-project-text-temporary">В данный момент проект находится в реализации.</p>
                             <Swiper
@@ -45,21 +71,18 @@ function ObjectPage() {
                                 modules={[Navigation, Zoom]}
                             >
                                 {
-                                    object.designImg.map((element: string | undefined) => {
-                                        return (
-                                            <SwiperSlide>
-                                                <img className="design-project" src={element} alt=""/>
-                                            </SwiperSlide>
-                                        );
+                                    object.photos.map((photo) => {
+                                        if (!photo.isDesign) {
+                                            return (
+                                                <SwiperSlide>
+                                                    <img className="design-project" src={ photo.image } alt={ photo.name }/>
+                                                </SwiperSlide>
+                                            );
+                                        }
                                     })
                                 }
                             </Swiper>
                         </>
-                        :
-                        state.state.realImg.map((element: string | undefined) => {
-                            console.log(state.state.realImg.length)
-                            return (<img className="object-img" src={ element } alt="" />);
-                        })
                 }
             </div>
             <Footer/>
