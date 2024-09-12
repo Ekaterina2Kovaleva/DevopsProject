@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v3ndu5pxbictx)as=n-9hmn4yog18bd5!+-a@4qqz!qipwgz63'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'project.apps.ProjectConfig',
     'rest_framework',
     'drf_yasg',
-    'corsheaders'
+    'corsheaders',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 #    "http://127.0.0.1:8000",
 #    ...
 #]
+
+THUMBNAIL_ALIASES = {
+    "": {
+        "small": {"size": (150, 150)}
+    },
+}
