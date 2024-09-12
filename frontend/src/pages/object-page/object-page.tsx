@@ -56,7 +56,6 @@ function ObjectPage() {
                     object.realization ? 
                         object.photos.map((photo) => {
                             if (photo.isDesign) {
-                                console.log(object)
                                 return (<img className="object-img" src={ photo.image } alt={ photo.name } />);
                             }
                             

@@ -6,7 +6,7 @@ import Footer from "../../components/footer/footer";
 import OpenPricePageBtn from "../../components/open-price-page-btn/open-price-page-btn";
 import OpenBackFormBtn from "../../components/open-back-form-btn/open-back-form-btn";
 import ObjectCard from "../../components/object-card/object-card";
-import { ObjectProps } from "../../utils/interfaces";
+import { ObjectProps, MainPagePhotoProps } from "../../utils/interfaces";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from 'swiper/modules';
@@ -15,26 +15,35 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-import firstStartImg from './img/1.jpg'
-import secondStartImg from './img/2.jpg'
-import thirdStartImg from './img/3.jpg'
-import fourthStartImg from './img/4.jpg'
-import fifthStartImg from './img/5.jpg'
-import sixthStartImg from './img/6.jpg'
-import seventhStartImg from './img/7.jpg'
-import eighthStartImg from './img/8.jpg'
-import ninthStartImg from './img/9.jpg'
+// import firstStartImg from './img/1.jpg'
+// import secondStartImg from './img/2.jpg'
+// import thirdStartImg from './img/3.jpg'
+// import fourthStartImg from './img/4.jpg'
+// import fifthStartImg from './img/5.jpg'
+// import sixthStartImg from './img/6.jpg'
+// import seventhStartImg from './img/7.jpg'
+// import eighthStartImg from './img/8.jpg'
+// import ninthStartImg from './img/9.jpg'
 import lenaPhoto from './img/lena-photo.jpg'
 
 import "./home-page-style.css";
 
 function HomePage() {
     const [progects, setProgects] = useState<ObjectProps[]>([]);
+    const [mainPhotos, setMainPhotos] = useState<MainPagePhotoProps[]>([]);
 
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/api/v1/project/') 
         .then(res => {
             setProgects(res.data);
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+        axios.get('http://127.0.0.1:8000/api/v1/design_photos/') 
+        .then(res => {
+            setMainPhotos(res.data);
         })
         .catch(err => {
             console.log(err)
@@ -74,7 +83,16 @@ function HomePage() {
                         loop={true}
                         effect={'fade'}
                     >
-                        <SwiperSlide>
+                        {
+                            mainPhotos.map((photo) => {
+                                return(
+                                    <SwiperSlide>
+                                        <img className="home-main-img" src={ photo.image } alt=''/>
+                                    </SwiperSlide>
+                                )
+                            }) 
+                        }
+                        {/* <SwiperSlide>
                             <img className="home-main-img" src={ firstStartImg } alt="Стартовое изображение"/>
                         </SwiperSlide>
                         <SwiperSlide>
@@ -100,7 +118,7 @@ function HomePage() {
                         </SwiperSlide>
                         <SwiperSlide>
                             <img className="home-main-img" src={ ninthStartImg } alt="Стартовое изображение"/>
-                        </SwiperSlide>
+                        </SwiperSlide> */}
                     </Swiper>
                     <div className="swiper-text-div">
                         <h1 className="swiper-title">Студия дизайна интерьера</h1>

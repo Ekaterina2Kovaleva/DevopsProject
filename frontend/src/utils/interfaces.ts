@@ -21,5 +21,9 @@ interface PriceProps {
     mainImg: string;
 }
 
+interface MainPagePhotoProps {
+    image: string;
+}
 
-export { type ObjectProps, type PriceProps };
+
+export { type ObjectProps, type PriceProps, type MainPagePhotoProps };
