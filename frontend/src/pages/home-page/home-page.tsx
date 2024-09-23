@@ -43,7 +43,8 @@ function HomePage() {
     }, [])
 
     function getThreeObjects() {
-        const threeObjects = progects.slice(0, 3);
+        const r = progects.reverse();
+        const threeObjects = r.slice(0, 3);
 
         return (
             <>
