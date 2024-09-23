@@ -2,7 +2,7 @@ from django.core.exceptions import ValidationError
 
 
 def get_path_upload_image(instance, file):
-    return f'image/{instance.id}/{file}'
+    return f'image/{instance.name}/{file}'
 
 
 def validate_size_image(file_obj):

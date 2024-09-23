@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'project.apps.ProjectConfig',
     'rest_framework',
     'drf_yasg',
-    'corsheaders'
+    'corsheaders',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 #    "http://127.0.0.1:8000",
 #    ...
 #]
+
+THUMBNAIL_ALIASES = {
+    "": {
+        "small": {"size": (150, 150)}
+    },
+}

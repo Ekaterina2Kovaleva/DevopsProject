@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Photo, Project, Request, Tariff
+from .models import Photo, Project, Request, Tariff, DesignPhoto
 
 class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -7,12 +7,11 @@ class PhotoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
+
+    photos = PhotoSerializer(many=True, read_only=True)
     class Meta:
         model = Project
-        fields = '__all__'
-        depth = 1
-
-
+        fields = ('name', 'place', 'square', 'square', 'realization', 'inf', 'mainImg', 'photos')
 
 class RequestSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,4 +21,9 @@ class RequestSerializer(serializers.ModelSerializer):
 class TariffSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tariff
+        fields = '__all__'
+
+class DesignPhotoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DesignPhoto
         fields = '__all__'
