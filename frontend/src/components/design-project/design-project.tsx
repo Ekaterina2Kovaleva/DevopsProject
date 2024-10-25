@@ -26,7 +26,7 @@ function DesignProject(objectData : ObjectProps) {
                 >
                     {
                         objectData.photos.map((photo) => {
-                            if (!photo.isDesign) {
+                            if (photo.real) {
                                 return (
                                     <SwiperSlide>
                                         {/* <div className="swiper-zoom-container">

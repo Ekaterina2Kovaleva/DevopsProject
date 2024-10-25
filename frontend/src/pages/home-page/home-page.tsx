@@ -41,7 +41,7 @@ function HomePage() {
             console.log(err)
         })
 
-        axios.get('http://127.0.0.1:8000/api/v1/design_photos/') 
+        axios.get('http://127.0.0.1:8000/api/v1/main/') 
         .then(res => {
             setMainPhotos(res.data);
         })
