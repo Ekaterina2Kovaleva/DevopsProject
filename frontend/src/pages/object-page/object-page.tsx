@@ -55,7 +55,7 @@ function ObjectPage() {
                 {
                     object.realization ? 
                         object.photos.map((photo) => {
-                            if (photo.isDesign) {
+                            if (!photo.real) {
                                 return (<img className="object-img" src={ photo.image } alt={ photo.name } />);
                             }
                             
@@ -73,7 +73,7 @@ function ObjectPage() {
                             >
                                 {
                                     object.photos.map((photo) => {
-                                        if (!photo.isDesign) {
+                                        if (photo.real) {
                                             console.log(object)
                                             return (
                                                 <SwiperSlide>

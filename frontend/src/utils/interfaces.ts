@@ -1,6 +1,6 @@
 interface PhotoProps {
     name: string;
-    isDesign: boolean;
+    real: boolean;
     image: string;
 }
 
