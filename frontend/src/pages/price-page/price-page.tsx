@@ -16,7 +16,7 @@ function PricePage() {
     const [prices, setPrices] = useState<PriceProps[]>([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/v1/tarriff/') 
+        axios.get('http://127.0.0.1/api/v1/tarriff/') 
         .then(res => {
             setPrices(res.data);
         })

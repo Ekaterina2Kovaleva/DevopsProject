@@ -11,7 +11,7 @@ function DesignProjectsPage() {
     const [projects, setProgects] = useState<ObjectProps[]>([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/v1/project/') 
+        axios.get('http://127.0.0.1/api/v1/project/') 
         .then(res => {
             setProgects(res.data);
         }) 

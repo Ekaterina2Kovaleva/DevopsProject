@@ -1,6 +1,18 @@
 version: '3.8'
 services:
 
+  frontend:
+    build:
+      context: ../frontend/
+      dockerfile: Dockerfile
+
+  db:
+    image: postgres:13.0-alpine
+    volumes:
+      - db:/var/lib/postgresql/data/
+    env_file:
+      - ./.env
+
   backend:
     build:
       context: ../backend/
@@ -8,7 +20,8 @@ services:
     restart: always
     volumes:
       - static_value:/app/static/
-      - ./.postgresql/root.crt:/root/.postgresql/root.crt
+    depends_on:
+      - db
     env_file:
       - ./.env
 
@@ -18,10 +31,11 @@ services:
       - 80:80
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - static_value:/var/html/static/  
+      - static_value:/var/html/static/
     depends_on:
       - backend
+      - frontend
 
 volumes:
+  db:
   static_value:
-  
