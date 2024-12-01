@@ -33,7 +33,7 @@ function HomePage() {
     const [mainPhotos, setMainPhotos] = useState<MainPagePhotoProps[]>([]);
 
     useEffect(() => {
-        axios.get('http://elenapapizhuk.ru/api/v1/project/') 
+        axios.get('https://elenapapizhuk.ru/api/v1/project/') 
         .then(res => {
             setProgects(res.data);
         })
@@ -41,7 +41,7 @@ function HomePage() {
             console.log(err)
         })
 
-        axios.get('http://elenapapizhuk.ru/api/v1/main/') 
+        axios.get('https://elenapapizhuk.ru/api/v1/main/') 
         .then(res => {
             setMainPhotos(res.data);
         })
