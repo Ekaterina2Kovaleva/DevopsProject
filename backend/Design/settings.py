@@ -95,6 +95,9 @@ DATABASES = {
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost',
     'http://127.0.0.1',
+    'http://elenapapizhuk.ru',
+    'https://elenapapizhuk.ru',
+    'http://90.156.169.6'
 ]
 
 # Password validation

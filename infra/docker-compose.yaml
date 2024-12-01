@@ -20,6 +20,9 @@ services:
     restart: always
     volumes:
       - static_value:/app/static/
+      - media_value:/app/media/
+    ports:
+      - 8000:8000
     depends_on:
       - db
     env_file:
@@ -32,10 +35,23 @@ services:
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/html/static/
+      - media_value:/var/html/media/
+      - ./certbot/conf:/etc/nginx/ssl:z,ro
+      - ./certbot/www:/var/www/certbot:z,ro
     depends_on:
       - backend
       - frontend
 
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/conf/:/etc/letsencrypt/:rw
+      - ./certbot/www/:/var/www/certbot/:rw
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email karazhev.g@gmail.com -d storybook.goulash.tech --agree-tos --dry-run
+
+
 volumes:
   db:
   static_value:
+  media_value:
