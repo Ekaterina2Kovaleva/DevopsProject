@@ -97,7 +97,9 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1',
     'http://elenapapizhuk.ru',
     'https://elenapapizhuk.ru',
-    'http://90.156.169.6'
+    'http://90.156.169.6',
+    'http://xn--80aanahlpctvb4c.xn--p1ai',
+    'https://xn--80aanahlpctvb4c.xn--p1ai'
 ]
 
 # Password validation
