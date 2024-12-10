@@ -77,7 +77,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Design.wsgi.application'
 
-
+DATA_UPLOAD_MAX_MEMORY_SIZE = 1073741824
+FILE_UPLOAD_MAX_MEMORY_SIZE = 1073741824
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 

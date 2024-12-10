@@ -8,20 +8,20 @@ class Project(models.Model):
     place = models.CharField(verbose_name="Город", max_length=255)
     square = models.FloatField(verbose_name="Площадь объекта", null=True, blank=True)
     realization = models.BooleanField(verbose_name="Реализован", default=False)
-    inf = models.TextField(verbose_name="Описание")
+    inf = models.TextField(verbose_name="Описание", null=True, blank=True)
+    link = models.CharField(verbose_name="Ссылка на 3d", max_length=2048, null=True, blank=True)
     mainImg = models.ImageField(
         upload_to=get_path_upload_image,
         blank=True,
         null=True,
         validators=[FileExtensionValidator(allowed_extensions=['jpg']), validate_size_image]
     )
+    
 
     def __str__(self):
         return self.name
 
 
-
-    
 class Photo(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="photos", null=True, blank=True)
     real = models.BooleanField(verbose_name="Дизайн", default=False)
